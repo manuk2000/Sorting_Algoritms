@@ -1,29 +1,36 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Arrays;
+
+//
 public class Main {
     public static void main(String[] args) {
         int size = 8;
+//        double[] arr = initDoubleArr(size);
         int[] arr = initArr(size);
-//        int[] arr = {14 ,10, 15, 14 };
-        printArr(arr);
+//int[] arr = {20 , 8,30,5,18,35,15,41,10};
+        System.out.println(Arrays.toString(arr));
 
-        arr = MergeSort.sort(arr);
-        printArr(arr);
+        DualPivotQuickSort.sort(arr);
+
+        System.out.println(Arrays.toString(arr));
     }
-    static void printArr(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-    }
-    static int[] initArr(int size){
-        int[] arr = new int[size];
-        for (int i = 0; i < size; i++) {
-            arr[i] = (int) (Math.random() *10 + 10);
+
+    static int[] initArr(int sizeArray) {
+        int[] arr = new int[sizeArray];
+        for (int i = 0; i < sizeArray; i++) {
+            arr[i] = (int) (Math.random() * 100);
         }
         return arr;
     }
-    static void swap(int[] arr , int i , int j){
+
+    static double[] initDoubleArr(int sizeArray) {
+        double[] arr = new double[sizeArray];
+        for (int i = 0; i < sizeArray; i++) {
+            arr[i] = (double) (int) (Math.random() * 100) / 100;
+        }
+        return arr;
+    }
+
+    static void swap(int[] arr, int i, int j) {
 //        System.out.println( i +"  "+ j);
         int tmp = arr[i];
         arr[i] = arr[j];
